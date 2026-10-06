@@ -1,0 +1,6 @@
+{
+  "name": "바른말 패치",
+  "description": "MZ세대를 위한 위트 있는 비속어 및 줄임말 순화 번역기 & 사전",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

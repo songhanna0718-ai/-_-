@@ -1,0 +1,2663 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>바른말 패치 | MZ 신조어 & 욕설 품격 순화기</title>
+    <meta name="description" content="격한 욕설과 은어, 신조어를 우아하고 위트 있는 표준어로 변환하는 언어 습관 패치 사전" />
+    <meta property="og:title" content="바른말 패치 | MZ 신조어 & 욕설 품격 순화기" />
+    <meta property="og:description" content="거친 욕설과 은어를 품격 있는 비즈니스 및 일상 표준어로 패치하세요!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-main: #0b0f19;
+        --bg-card: #131b2e;
+        --bg-card-hover: #1a243d;
+        --bg-input: #1a2236;
+        --border-color: #24304f;
+        --border-focus: #3b82f6;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --accent-blue: #2563eb;
+        --accent-blue-light: #3b82f6;
+        --accent-red: #ef4444;
+        --accent-amber: #f59e0b;
+        --accent-emerald: #10b981;
+        --accent-purple: #8b5cf6;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-main);
+        color: var(--text-primary);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: var(--bg-main); }
+      ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+      /* Header */
+      header {
+        border-bottom: 1px solid var(--border-color);
+        background: rgba(11, 15, 25, 0.85);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+
+      .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.9rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1.25rem;
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+      }
+
+      .logo-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .version-tag {
+        font-size: 0.7rem;
+        background: #1e293b;
+        color: var(--accent-blue-light);
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        border: 1px solid var(--border-color);
+        font-weight: 700;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .nav-btn {
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        padding: 0.45rem 0.9rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: all 0.2s ease;
+      }
+
+      .nav-btn:hover {
+        background: var(--bg-card);
+        color: var(--text-primary);
+        border-color: var(--text-muted);
+      }
+
+      .nav-btn.highlight {
+        background: var(--accent-blue);
+        border-color: var(--accent-blue);
+        color: #ffffff;
+      }
+
+      .nav-btn.highlight:hover { background: #1d4ed8; }
+
+      /* Main Layout */
+      main {
+        flex: 1;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+      }
+
+      /* Hero */
+      .hero-section {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #f87171;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 0.9rem;
+      }
+
+      .hero-title {
+        font-size: 2.35rem;
+        font-weight: 900;
+        letter-spacing: -1px;
+        margin-bottom: 0.6rem;
+        line-height: 1.25;
+      }
+
+      .hero-title span { color: var(--accent-blue-light); }
+      .hero-title span.red { color: #f87171; }
+
+      .hero-desc {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        max-width: 620px;
+        margin: 0 auto;
+      }
+
+      /* Filter Mode Tabs */
+      .mode-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .tab-btn {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        padding: 0.45rem 1rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .tab-btn.active {
+        background: var(--accent-blue);
+        border-color: var(--accent-blue);
+        color: #ffffff;
+      }
+
+      /* Search Box */
+      .search-container {
+        max-width: 780px;
+        margin: 0 auto 2.25rem auto;
+      }
+
+      .search-box-wrapper {
+        position: relative;
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        border-radius: 16px;
+        padding: 0.5rem 0.6rem 0.5rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+        transition: all 0.25s ease;
+      }
+
+      .search-box-wrapper:focus-within {
+        border-color: var(--accent-blue-light);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 12px 36px -8px rgba(0, 0, 0, 0.7);
+      }
+
+      .search-icon {
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+      }
+
+      .search-input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--text-primary);
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+
+      .search-input::placeholder {
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      .clear-btn {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        padding: 0.35rem;
+        border-radius: 50%;
+        display: none;
+      }
+      .clear-btn:hover {
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .search-submit-btn {
+        background: var(--accent-blue);
+        color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.8rem 1.4rem;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        white-space: nowrap;
+      }
+
+      .search-submit-btn:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+      }
+
+      /* Quick Tags */
+      .quick-keywords {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .quick-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .quick-btn {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        padding: 0.3rem 0.7rem;
+        border-radius: 20px;
+        font-size: 0.825rem;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .quick-btn.danger-tag {
+        color: #f87171;
+        border-color: rgba(239, 68, 68, 0.3);
+        background: rgba(239, 68, 68, 0.06);
+      }
+
+      .quick-btn:hover {
+        border-color: var(--accent-blue-light);
+        color: var(--accent-blue-light);
+        background: rgba(59, 130, 246, 0.08);
+      }
+
+      .quick-btn.danger-tag:hover {
+        border-color: #ef4444;
+        color: #ffffff;
+        background: #ef4444;
+      }
+
+      /* Grid Layout */
+      .portal-grid {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 1.75rem;
+        align-items: start;
+      }
+
+      @media (max-width: 960px) {
+        .portal-grid { grid-template-columns: 1fr; }
+      }
+
+      /* Result Card */
+      .result-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .result-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .result-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent-blue), var(--accent-emerald));
+      }
+
+      .result-card.is-profanity::before {
+        background: linear-gradient(90deg, #ef4444, #f59e0b);
+      }
+
+      .result-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .original-word-tag {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .original-word-text {
+        text-decoration: line-through;
+        color: var(--accent-red);
+        font-weight: 800;
+        font-size: 1.15rem;
+      }
+
+      .badge-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .patch-badge {
+        font-size: 0.75rem;
+        background: rgba(16, 185, 129, 0.15);
+        color: var(--accent-emerald);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 0.25rem 0.65rem;
+        border-radius: 6px;
+        font-weight: 700;
+      }
+
+      .level-badge {
+        font-size: 0.75rem;
+        background: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        padding: 0.25rem 0.65rem;
+        border-radius: 6px;
+        font-weight: 800;
+      }
+
+      .translated-term {
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--text-primary);
+        letter-spacing: -0.5px;
+        line-height: 1.25;
+        margin-bottom: 0.5rem;
+      }
+
+      .translated-term span { color: var(--accent-blue-light); }
+
+      .term-vibe {
+        display: inline-block;
+        font-size: 0.825rem;
+        color: var(--accent-amber);
+        background: rgba(245, 158, 11, 0.12);
+        padding: 0.25rem 0.65rem;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      .info-group { margin-bottom: 1.5rem; }
+
+      .info-title {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .etymology-box {
+        background: rgba(11, 15, 25, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 1rem;
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .examples-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .example-item {
+        background: var(--bg-input);
+        border-left: 3px solid var(--accent-blue-light);
+        border-radius: 0 8px 8px 0;
+        padding: 0.85rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      .example-item.casual-item {
+        border-left-color: var(--accent-purple);
+      }
+
+      .example-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        margin-bottom: 0.25rem;
+      }
+
+      .example-text {
+        color: var(--text-primary);
+        font-weight: 500;
+      }
+
+      .example-highlight {
+        color: var(--accent-blue-light);
+        font-weight: 700;
+      }
+
+      /* Action Bar */
+      .action-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .copy-btn {
+        background: var(--accent-blue);
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.65rem 1.2rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s;
+      }
+      .copy-btn:hover { background: #1d4ed8; }
+
+      .share-btn {
+        background: var(--bg-input);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        border-radius: 8px;
+        padding: 0.65rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s;
+      }
+      .share-btn:hover {
+        border-color: var(--text-muted);
+        color: var(--text-primary);
+      }
+
+      /* AI Loading Simulation State */
+      .ai-loading-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 3rem 2rem;
+        text-align: center;
+        display: none;
+      }
+
+      .ai-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(59, 130, 246, 0.2);
+        border-top-color: var(--accent-blue-light);
+        border-radius: 50%;
+        animation: spin 1s infinite linear;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .ai-loading-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .ai-loading-subtitle {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      /* Unregistered fallback */
+      .unregistered-box {
+        background: var(--bg-card);
+        border: 1px dashed var(--border-color);
+        border-radius: 16px;
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        display: none;
+      }
+
+      .unregistered-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+      .unregistered-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+      .unregistered-desc {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        max-width: 480px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .report-btn {
+        background: var(--accent-amber);
+        color: #0b0f19;
+        border: none;
+        border-radius: 8px;
+        padding: 0.65rem 1.25rem;
+        font-weight: 800;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: transform 0.15s;
+      }
+      .report-btn:hover { transform: translateY(-2px); }
+
+      /* Category Pills & Hint Chips */
+      .cat-pill {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        border-radius: 9999px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .cat-pill:hover {
+        border-color: rgba(59, 130, 246, 0.4);
+        color: #ffffff;
+      }
+      .cat-pill.active {
+        background: rgba(59, 130, 246, 0.25);
+        border-color: var(--accent-blue-light);
+        color: #ffffff;
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+      }
+
+      .hint-chip {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-secondary);
+        border-radius: 6px;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.775rem;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .hint-chip:hover {
+        background: rgba(59, 130, 246, 0.18);
+        border-color: var(--accent-blue-light);
+        color: #93c5fd;
+      }
+
+      .delete-custom-btn {
+        background: transparent;
+        border: 1px solid rgba(239, 68, 68, 0.25);
+        color: #f87171;
+        border-radius: 6px;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+      .delete-custom-btn:hover {
+        background: rgba(239, 68, 68, 0.15);
+        border-color: #ef4444;
+        color: #ffffff;
+      }
+
+      .custom-view-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 1.75rem;
+        display: none;
+      }
+
+      /* AI Inferred Result Alert */
+      .ai-inferred-alert {
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: 10px;
+        padding: 0.85rem 1rem;
+        font-size: 0.85rem;
+        color: #c4b5fd;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .side-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 1.35rem;
+      }
+
+      .side-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .side-title {
+        font-size: 1rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .today-card-content {
+        background: var(--bg-input);
+        border-radius: 10px;
+        padding: 1rem;
+      }
+
+      .today-slang {
+        font-size: 0.85rem;
+        color: var(--accent-red);
+        font-weight: 700;
+        text-decoration: line-through;
+        margin-bottom: 0.2rem;
+      }
+
+      .today-pure {
+        font-size: 1.35rem;
+        font-weight: 900;
+        color: var(--accent-blue-light);
+        margin-bottom: 0.4rem;
+      }
+
+      .today-desc {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+      }
+
+      .today-try-btn {
+        width: 100%;
+        background: rgba(59, 130, 246, 0.15);
+        color: var(--accent-blue-light);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 6px;
+        padding: 0.45rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .today-try-btn:hover {
+        background: var(--accent-blue);
+        color: #ffffff;
+      }
+
+      /* Trending List */
+      .trending-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .trending-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 0.75rem;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .trending-item:hover { background: var(--bg-card-hover); }
+
+      .trending-left {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .rank-num {
+        font-weight: 900;
+        font-size: 0.9rem;
+        width: 18px;
+        color: var(--text-muted);
+      }
+      .rank-top { color: var(--accent-blue-light); }
+
+      .trending-word {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .rank-status { font-size: 0.75rem; font-weight: 700; }
+      .rank-up { color: var(--accent-red); }
+      .rank-same { color: var(--text-muted); }
+
+      /* Modals */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(6px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        padding: 1.5rem;
+      }
+
+      .modal-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        max-width: 520px;
+        width: 100%;
+        padding: 2rem;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        animation: scaleUp 0.2s ease-out;
+      }
+
+      @keyframes scaleUp {
+        from { transform: scale(0.95); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+
+      .modal-close-btn {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 1.25rem;
+        line-height: 1;
+      }
+      .modal-close-btn:hover { color: var(--text-primary); }
+
+      .modal-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem; }
+      .modal-desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+      /* Quiz */
+      .quiz-question-box {
+        background: var(--bg-input);
+        padding: 1.2rem;
+        border-radius: 10px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .quiz-option-btn {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        padding: 0.85rem 1rem;
+        border-radius: 8px;
+        text-align: left;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .quiz-option-btn:hover:not(:disabled) {
+        border-color: var(--accent-blue-light);
+        background: var(--bg-card-hover);
+      }
+
+      .quiz-option-btn.correct {
+        background: rgba(16, 185, 129, 0.2);
+        border-color: var(--accent-emerald);
+        color: var(--accent-emerald);
+      }
+
+      .quiz-option-btn.wrong {
+        background: rgba(239, 68, 68, 0.2);
+        border-color: var(--accent-red);
+        color: var(--accent-red);
+      }
+
+      .quiz-feedback {
+        display: none;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.25rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .quiz-feedback.show-correct {
+        display: block;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: #a7f3d0;
+      }
+
+      .quiz-feedback.show-wrong {
+        display: block;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #fecaca;
+      }
+
+      .quiz-next-btn {
+        width: 100%;
+        background: var(--accent-blue);
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.85rem;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: none;
+      }
+
+      /* Floating Action Button */
+      .fab-quiz {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+        font-weight: 800;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+        z-index: 40;
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .fab-quiz:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 12px 30px rgba(37, 99, 235, 0.6);
+      }
+
+      /* Toast */
+      .toast {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: #1e293b;
+        color: #ffffff;
+        border: 1px solid var(--accent-blue-light);
+        padding: 0.75rem 1.5rem;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        z-index: 120;
+        opacity: 0;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .toast.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+
+      .form-group { margin-bottom: 1.25rem; }
+      .form-label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-secondary);
+        margin-bottom: 0.4rem;
+      }
+
+      .form-input, .form-textarea {
+        width: 100%;
+        background: var(--bg-input);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 0.75rem;
+        color: var(--text-primary);
+        font-size: 0.95rem;
+        outline: none;
+      }
+
+      .form-input:focus, .form-textarea:focus { border-color: var(--accent-blue-light); }
+
+      .submit-form-btn {
+        width: 100%;
+        background: var(--accent-blue);
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.85rem;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      #confetti-canvas {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 110;
+      }
+
+      footer {
+        border-top: 1px solid var(--border-color);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <div class="logo-area" onclick="location.reload()">
+          <div class="logo-icon">패</div>
+          <div>
+            <div class="logo-title">
+              바른말 패치
+              <span class="version-tag">v3.0 욕설·신조어 통합판</span>
+            </div>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-btn" onclick="openDictionaryModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            패치 사전 도감
+          </button>
+          <button class="nav-btn" style="border-color: rgba(245, 158, 11, 0.4); color: #fde68a; background: rgba(245, 158, 11, 0.1);" onclick="openReportModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            새 단어 제보 ✍️
+          </button>
+          <button class="nav-btn highlight" onclick="openQuizModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            바른말 퀴즈
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <!-- Hero -->
+      <section class="hero-section">
+        <div class="hero-badge">🚨 나무위키 등재 대표 한국어 욕설·비속어 순화 패치 가동</div>
+        <h1 class="hero-title">과격한 <span class="red">욕설과 은어</span>를 <span>품격 있는 표준어</span>로</h1>
+        <p class="hero-desc">
+          화가 치밀 때 튀어나오는 비속어와 공격적인 표현을 양반처럼 우아하고 정중한 고급 어휘로 즉각 정화합니다.
+        </p>
+      </section>
+
+      <!-- Category Filter Tabs -->
+      <div class="mode-tabs">
+        <button class="tab-btn active" onclick="setMode('all', this)">전체 통합 검색</button>
+        <button class="tab-btn" onclick="setMode('meme', this)">🔥 인방·커뮤 밈 (샤갈/야르/줴줴/엄)</button>
+        <button class="tab-btn" onclick="setMode('curse', this)">🤬 욕설·비속어 순화</button>
+        <button class="tab-btn" onclick="setMode('slang', this)">⚡ MZ 신조어·줄임말</button>
+        <button class="tab-btn" onclick="setMode('custom', this)">👑 사용자 제보 어휘 (<span id="custom-pill-count">0</span>)</button>
+        <button class="tab-btn" onclick="setMode('sentence', this)">📝 장문 문장 전체 정화</button>
+      </div>
+
+      <!-- Search Section -->
+      <section class="search-container">
+        <form id="search-form" onsubmit="handleSearchSubmit(event)">
+          <div class="search-box-wrapper">
+            <div class="search-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <input 
+              type="text" 
+              id="search-input" 
+              class="search-input" 
+              placeholder="단어나 문장을 입력하세요 (예: 샤갈, 야르, 줴줴이야, 엄, 씨발, 킹받네...)" 
+              autocomplete="off" 
+              autofocus
+            />
+            <button type="button" id="clear-btn" class="clear-btn" onclick="clearSearch()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <button type="submit" class="search-submit-btn">
+              <span>품격 패치</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </form>
+
+        <!-- Quick Tags -->
+        <div class="quick-keywords">
+          <span class="quick-label">🔥 요즘 대세 밈 감탄사:</span>
+          <button class="quick-btn" style="border-color: #a855f7; color: #d8b4fe; background: rgba(168, 85, 247, 0.1);" onclick="quickSearch('샤갈')">#샤갈</button>
+          <button class="quick-btn" style="border-color: #f59e0b; color: #fde68a; background: rgba(245, 158, 11, 0.1);" onclick="quickSearch('야르')">#야르</button>
+          <button class="quick-btn" style="border-color: #3b82f6; color: #bfdbfe; background: rgba(59, 130, 246, 0.1);" onclick="quickSearch('줴줴이야')">#줴줴이야</button>
+          <button class="quick-btn" style="border-color: #10b981; color: #a7f3d0; background: rgba(16, 185, 129, 0.1);" onclick="quickSearch('엄')">#엄</button>
+          <button class="quick-btn" onclick="quickSearch('폼 미쳤다')">#폼 미쳤다</button>
+          <span class="quick-label" style="margin-left: 0.5rem;">자주 찾는 욕설:</span>
+          <button class="quick-btn danger-tag" onclick="quickSearch('씨발')">#씨발</button>
+          <button class="quick-btn danger-tag" onclick="quickSearch('개새끼')">#개새끼</button>
+          <button class="quick-btn danger-tag" onclick="quickSearch('지랄')">#지랄</button>
+          <button class="quick-btn danger-tag" onclick="quickSearch('닥쳐')">#닥쳐</button>
+          <button class="quick-btn" onclick="quickSearch('킹받네')">#킹받네</button>
+        </div>
+      </section>
+
+      <!-- Portal Grid -->
+      <div class="portal-grid">
+        <!-- Main Result Column -->
+        <div class="result-wrapper">
+          <!-- Normal Result Card -->
+          <div id="result-card" class="result-card">
+            <div id="ai-alert-banner" class="ai-inferred-alert" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>AI 언어 순화 모델이 문맥과 감정 상태를 분석하여 추천한 정화 결과입니다.</span>
+            </div>
+
+            <div class="result-header">
+              <div>
+                <div class="original-word-tag">
+                  <span>패치 전 (비속어·은어):</span>
+                  <span id="res-original" class="original-word-text">씨발</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--accent-emerald); font-weight: 800; margin-bottom: 0.25rem;">⚡ 1:1 즉시 대체 순화어 (동일 어절 호흡):</div>
+                <div class="translated-term" id="res-translated">
+                  이런! <span>/ 맙소사!</span>
+                </div>
+                <div class="term-vibe" id="res-vibe">🛡️ 격한 탄식·분노 정화</div>
+              </div>
+              <div class="badge-group">
+                <span class="level-badge" id="res-level">🌶️ 수위 Lv.5</span>
+                <span class="patch-badge" id="res-badge">100% 품격 패치</span>
+              </div>
+            </div>
+
+            <!-- Etymology -->
+            <div class="info-group">
+              <div class="info-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                어원 및 비속어 유래 분석 (나무위키 등재 정보 기반)
+              </div>
+              <div class="etymology-box" id="res-etymology">
+                한국어에서 가장 대표적으로 쓰이는 극단적 감탄사이자 성적 비하 욕설에서 유래한 금기어입니다. 공적 자리에서는 품위 있는 유감 표현으로 교체해야 합니다.
+              </div>
+            </div>
+
+            <!-- Examples -->
+            <div class="info-group">
+              <div class="info-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                상황별 품격 있는 모범 예문
+              </div>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="example-label">비즈니스 / 직장 / 공공장소 버전</div>
+                  <div class="example-text" id="res-formal">
+                    "방금 발생한 돌발 사안은 <span class="example-highlight">심히 우려스럽고 안타깝기 그지없습니다</span>."
+                  </div>
+                </div>
+                <div class="example-item casual-item">
+                  <div class="example-label">위트 있는 일상 대화 버전</div>
+                  <div class="example-text" id="res-casual">
+                    "아이쿠 맙소사, <span class="example-highlight">진짜 심장이 철렁 내려앉았잖아</span>!"
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="action-bar">
+              <button class="copy-btn" onclick="copyPureWord()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                순화된 문장 복사하기
+              </button>
+              <button class="share-btn" onclick="handleShare('kakao')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.558 1.707 4.8 4.27 6.054l-1.085 3.98a.5.5 0 0 0 .768.528l4.63-3.07c.138.01.277.018.417.018 4.97 0 9-3.185 9-7.115S16.97 3 12 3z"/></svg>
+                카카오톡 공유
+              </button>
+              <button class="share-btn" onclick="handleShare('x')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                X(트위터) 공유
+              </button>
+            </div>
+          </div>
+
+          <!-- Fake AI Simulation Loading -->
+          <div id="ai-loading-card" class="ai-loading-box">
+            <div class="ai-spinner"></div>
+            <h3 class="ai-loading-title" id="ai-status-text">AI가 비속어 수위 및 문맥을 정밀 분석 중입니다...</h3>
+            <p class="ai-loading-subtitle">욕설 데이터베이스 및 어휘 순화 신경망 가동 중 (격식체/위트 모드 변환)</p>
+          </div>
+
+          <!-- Unregistered Fallback with Inline Contribution Form -->
+          <div id="unregistered-card" class="unregistered-box">
+            <div class="unregistered-icon">🧐</div>
+            <h3 class="unregistered-title">사전에 아직 등록되지 않은 단어입니다</h3>
+            <div style="margin-bottom: 0.75rem;">
+              <span style="font-size: 1.25rem; font-weight: 800; color: #f87171; background: rgba(239, 68, 68, 0.1); padding: 0.35rem 0.9rem; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.25);" id="unregistered-word-highlight">단어</span>
+            </div>
+            <p class="unregistered-desc">
+              신조어, 은어, 혹은 특수한 비속어인가요? 이 단어의 알맞은 1:1 순화어를 제보해 주시면 <strong>사전에 즉시 등록되어 영구 반영</strong>되며 누구나 바로 검색할 수 있습니다!
+            </p>
+
+            <!-- Inline Quick Report Box -->
+            <div style="background: var(--bg-input); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; max-width: 560px; margin: 0 auto 1rem auto; text-align: left;">
+              <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-blue-light); margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                즉석 단어 제보 & 사전에 실시간 영구 반영
+              </div>
+              <form id="inline-report-form" onsubmit="handleInlineReportSubmit(event)">
+                <div class="form-group" style="margin-bottom: 0.75rem;">
+                  <label class="form-label" style="font-size: 0.8rem;">제보할 단어</label>
+                  <input type="text" id="inline-report-word" class="form-input" style="padding: 0.6rem 0.75rem; font-size: 0.9rem; background: rgba(255,255,255,0.03); color: #f87171; font-weight: 700;" required readonly />
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 0.75rem;">
+                  <label class="form-label" style="font-size: 0.8rem;">대체할 1:1 순화어 (필수, 실제 문장에 바로 갈아 끼울 수 있는 표현)</label>
+                  <input type="text" id="inline-report-pure" class="form-input" style="padding: 0.6rem 0.75rem; font-size: 0.9rem;" placeholder="예: 야호! / 맙소사! / 조용히 해 / 억지" required />
+                  <div style="display: flex; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.4rem;">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); align-self: center;">💡 추천 힌트:</span>
+                    <button type="button" class="hint-chip" onclick="applyHintToPure('야호! / 우와!')">야호! / 우와!</button>
+                    <button type="button" class="hint-chip" onclick="applyHintToPure('이런! / 맙소사!')">이런! / 맙소사!</button>
+                    <button type="button" class="hint-chip" onclick="applyHintToPure('조용히 해! / 쉿!')">조용히 해! / 쉿!</button>
+                    <button type="button" class="hint-chip" onclick="applyHintToPure('억지 트집 / 비난')">억지 트집 / 비난</button>
+                    <button type="button" class="hint-chip" onclick="applyHintToPure('알아서 척척!')">알아서 척척!</button>
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0.75rem;">
+                  <label class="form-label" style="font-size: 0.8rem;">어휘 분류 (카테고리)</label>
+                  <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                    <button type="button" class="cat-pill active" onclick="selectInlineCategory('meme', this)">🔥 인방·커뮤 밈</button>
+                    <button type="button" class="cat-pill" onclick="selectInlineCategory('curse', this)">🤬 욕설·비속어</button>
+                    <button type="button" class="cat-pill" onclick="selectInlineCategory('slang', this)">⚡ MZ 신조어</button>
+                    <button type="button" class="cat-pill" onclick="selectInlineCategory('daily', this)">💬 일상 감탄사</button>
+                  </div>
+                  <input type="hidden" id="inline-report-category" value="meme" />
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label" style="font-size: 0.8rem;">어원 또는 원래 뜻 설명 (선택)</label>
+                  <input type="text" id="inline-report-desc" class="form-input" style="padding: 0.6rem 0.75rem; font-size: 0.9rem;" placeholder="어떤 상황이나 뉘앙스로 쓰이는 단어인가요?" />
+                </div>
+
+                <button type="submit" class="submit-form-btn" style="padding: 0.75rem; font-size: 0.95rem; background: var(--accent-emerald); display: flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  사전에 즉시 등록하고 순화 결과 보기
+                </button>
+              </form>
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              제보된 단어는 브라우저 로컬 저장소에 안전하게 저장되어 다음 접속 시에도 계속 유지됩니다.
+            </div>
+            <button type="button" class="report-btn" style="background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="openReportModal()">
+              상세 제보 모달 열기 →
+            </button>
+          </div>
+
+          <!-- Custom Contributed Words Portal View -->
+          <div id="custom-list-view" class="custom-view-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 0.5rem;">
+                  <span>👑 사용자 제보 순화어 컬렉션</span>
+                  <span id="custom-view-badge" style="font-size: 0.75rem; background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.2rem 0.6rem; border-radius: 9999px;">0개</span>
+                </h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                  사용자들이 직접 등록하여 실시간으로 사전에 영구 반영된 순화어 목록입니다. 클릭 시 즉시 순화 상세 카드를 볼 수 있습니다.
+                </p>
+              </div>
+              <button onclick="openReportModal()" class="submit-form-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem; background: var(--accent-amber); color: #0b0f19; cursor: pointer;">
+                + 새 단어 제보하기
+              </button>
+            </div>
+            <div id="custom-cards-container" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <!-- Today's Featured Card -->
+          <div class="side-card">
+            <div class="side-card-header">
+              <span class="side-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                오늘의 추천 순화어
+              </span>
+              <span style="font-size: 0.75rem; color: var(--accent-red); font-weight: 700;">추천</span>
+            </div>
+            <div class="today-card-content">
+              <div class="today-slang" id="today-slang-val">야르</div>
+              <div class="today-pure" id="today-pure-val">야호! / 우와!</div>
+              <p class="today-desc" id="today-desc-val">
+                승리나 득템 시 외치는 인터넷 환호 밈을 동일한 1어절 호흡인 '야호!'나 '우와!'로 바로 바꿔 말해보세요!
+              </p>
+              <button class="today-try-btn" onclick="quickSearch('야르')">
+                이 단어로 검색해보기 →
+              </button>
+            </div>
+          </div>
+
+          <!-- Realtime User Contributions Sidebar Card -->
+          <div class="side-card">
+            <div class="side-card-header">
+              <span class="side-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                최근 제보·반영된 순화어
+              </span>
+              <button onclick="openReportModal()" style="font-size: 0.75rem; color: var(--accent-amber); background: transparent; border: none; font-weight: 700; cursor: pointer;">+ 직접 제보</button>
+            </div>
+            <div id="recent-custom-list" class="trending-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Realtime Hot Words -->
+          <div class="side-card">
+            <div class="side-card-header">
+              <span class="side-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                실시간 검색 순위
+              </span>
+              <span style="font-size: 0.75rem; color: var(--accent-emerald); font-weight: 700;">LIVE</span>
+            </div>
+            <div class="trending-list" id="trending-list"></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Quiz Floating Action Button -->
+    <button class="fab-quiz" onclick="openQuizModal()">
+      <span>🎯 오늘의 바른말 퀴즈</span>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">문장이 클립보드에 복사되었습니다!</div>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'quiz-modal')">
+      <div class="modal-box">
+        <button class="modal-close-btn" onclick="closeQuizModal()">✕</button>
+        <div style="font-size: 0.8rem; color: var(--accent-blue-light); font-weight: 800; margin-bottom: 0.25rem;">MINI GAME</div>
+        <h3 class="modal-title">오늘의 바른말 퀴즈 🎯</h3>
+        <p class="modal-desc">거친 욕설이나 은어를 가장 우아하게 바꾼 순화어를 골라보세요!</p>
+
+        <div class="quiz-question-box" id="quiz-question"></div>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div id="quiz-feedback" class="quiz-feedback"></div>
+
+        <button id="quiz-next-btn" class="quiz-next-btn" onclick="nextQuiz()">
+          다음 문제 풀기 →
+        </button>
+      </div>
+    </div>
+
+    <!-- Dictionary Catalog Modal -->
+    <div id="dict-modal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'dict-modal')">
+      <div class="modal-box" style="max-width: 720px; max-height: 84vh; overflow-y: auto;">
+        <button class="modal-close-btn" onclick="closeDictionaryModal()">✕</button>
+        <h3 class="modal-title">📖 바른말 패치 사전 전체 도감</h3>
+        <p class="modal-desc">나무위키 한국어 욕설 목록 및 최신 MZ 신조어, 사용자가 제보한 어휘가 총망라된 순화 도감입니다.</p>
+
+        <!-- Catalog Filter Pills -->
+        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.75rem;">
+          <button class="cat-pill active" onclick="filterCatalog('all', this)">전체 (<span id="cat-count-all">0</span>)</button>
+          <button class="cat-pill" style="border-color: rgba(245, 158, 11, 0.4); color: #fde68a;" onclick="filterCatalog('custom', this)">👑 사용자 제보 (<span id="cat-count-custom">0</span>)</button>
+          <button class="cat-pill" onclick="filterCatalog('meme', this)">🔥 인방·커뮤 밈 (<span id="cat-count-meme">0</span>)</button>
+          <button class="cat-pill" onclick="filterCatalog('curse', this)">🤬 욕설·비속어 (<span id="cat-count-curse">0</span>)</button>
+          <button class="cat-pill" onclick="filterCatalog('slang', this)">⚡ MZ 신조어 (<span id="cat-count-slang">0</span>)</button>
+        </div>
+
+        <div id="dict-catalog-list" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+      </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div id="report-modal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'report-modal')">
+      <div class="modal-box">
+        <button class="modal-close-btn" onclick="closeReportModal()">✕</button>
+        <h3 class="modal-title">새로운 어휘 제보하기 ✍️</h3>
+        <p class="modal-desc">사전에 없는 은어·욕설과 품격 있는 1:1 순화어를 제보해주세요. 사전에 즉시 등록되어 반영됩니다!</p>
+        
+        <form onsubmit="handleReportSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">제보할 단어 / 비속어 (필수)</label>
+            <input type="text" id="report-word" class="form-input" placeholder="예: 샤갈, 억까, 쌉소리 등" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">대체할 1:1 순화어 (필수, 실제 문장에 갈아 끼울 표현)</label>
+            <input type="text" id="report-pure" class="form-input" placeholder="예: 아이고! / 억지 트집 / 헛소리" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">어휘 분류 (카테고리)</label>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button type="button" class="cat-pill active" onclick="selectModalCategory('meme', this)">🔥 인방·커뮤 밈</button>
+              <button type="button" class="cat-pill" onclick="selectModalCategory('curse', this)">🤬 욕설·비속어</button>
+              <button type="button" class="cat-pill" onclick="selectModalCategory('slang', this)">⚡ MZ 신조어</button>
+              <button type="button" class="cat-pill" onclick="selectModalCategory('daily', this)">💬 일상 감탄사</button>
+            </div>
+            <input type="hidden" id="report-category" value="meme" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">어원 및 배경 설명 (선택)</label>
+            <textarea id="report-desc" class="form-textarea" rows="3" placeholder="단어의 의미와 뉘앙스, 어떤 상황에서 쓰이는지 설명해 주세요."></textarea>
+          </div>
+          <button type="submit" class="submit-form-btn">사전에 즉시 등록하고 반영하기</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>바른말 패치 (Bareunmal Patch) · 나무위키 한국어 욕설 및 MZ 은어 순화 프로젝트</p>
+      <p style="margin-top: 0.4rem; opacity: 0.6;">© 2026 Bareunmal Patch. All rights reserved.</p>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+      // Comprehensive Dictionary: Profanities (나무위키 한국어 욕설 목록 반영) + MZ Slang
+      const dictionary = [
+        // --- 나무위키 등재 대표 한국어 욕설군 ---
+        {
+          word: "씨발",
+          aliases: ["시발", "ㅅㅂ", "ㅆㅂ", "시바", "씨바", "C발"],
+          category: "curse",
+          level: "🌶️ Lv.5 극대노",
+          pure: "이런! / 맙소사!",
+          vibe: "🛡️ 극단적 감탄·분노 정화",
+          etymology: "돌발 상황이나 분노 시 튀어나오는 대표적 비속어입니다. 어절 호흡에 맞춰 '이런!' 또는 '맙소사!'로 즉각 대체해 품격을 지킬 수 있습니다.",
+          formal: "금일 발생한 돌발 사안은 심히 우려스럽고 안타깝기 그지없습니다.",
+          casual: "아이쿠 맙소사! 진짜 심장이 철렁 내려앉았잖아!"
+        },
+        {
+          word: "개새끼",
+          aliases: ["개새", "ㄱㅅㄲ", "새끼", "이새끼"],
+          category: "curse",
+          level: "🌶️ Lv.5 인신공격",
+          pure: "무례한 사람 / 나쁜 사람",
+          vibe: "🧐 인간관계 격양 수습",
+          etymology: "상대의 인격을 동물에 빗대어 모욕하는 비속어입니다. 동일한 어절 구조인 '무례한 사람' 또는 '나쁜 사람'으로 1:1 대체할 수 있습니다.",
+          formal: "기본적인 예절과 직업윤리를 결여한 채 무책임하게 행동하셨습니다.",
+          casual: "너 정말 사람에 대한 최소한의 예의도 없구나?"
+        },
+        {
+          word: "지랄",
+          aliases: ["ㅈㄹ", "지랄하네", "지랄염병", "지랄마"],
+          category: "curse",
+          level: "🌶️ Lv.4 난동·소란",
+          pure: "생떼 / 억지 / 난리",
+          vibe: "✋ 비합리적 억지 제지",
+          etymology: "사리에 맞지 않게 날뛰거나 억지를 부리는 행태를 비하하는 말입니다. 문맥에 따라 '생떼' 혹은 '억지', '난리'로 즉시 바꿔 쓰기 좋습니다.",
+          formal: "합리적 근거가 결여된 무리한 억지 주장은 회의의 진행을 방해합니다.",
+          casual: "더 이상 사리에 맞지 않는 생떼는 부리지 마세요."
+        },
+        {
+          word: "병신",
+          aliases: ["ㅂㅅ", "빙신", "븅신", "등신"],
+          category: "curse",
+          level: "🌶️ Lv.5 혐오·비하",
+          pure: "바보 / 어설픈 사람",
+          vibe: "💡 안타까운 실수 감싸기",
+          etymology: "타인의 실수나 모자람을 비하하는 혐오 표현입니다. 혐오를 걷어내고 친근한 '바보' 또는 '어설픈 사람'으로 대체할 수 있습니다.",
+          formal: "해당 조치는 사려 깊지 못한 판단 착오에서 기인한 것으로 사료됩니다.",
+          casual: "아이고, 그런 중요한 걸 깜빡하다니 정말 어설펐네!"
+        },
+        {
+          word: "닥쳐",
+          aliases: ["닥쳐라", "아가리", "주둥이", "닥치세요"],
+          category: "curse",
+          level: "🌶️ Lv.3 언행 차단",
+          pure: "조용히 해! / 쉿!",
+          vibe: "🤫 소음·언쟁 정숙 권고",
+          etymology: "상대방의 입을 억지로 틀어막는 거친 명령형 비속어입니다. 동일한 1~2어절 호흡의 '조용히 해!' 또는 '쉿!'으로 즉시 대체하세요.",
+          formal: "원활한 토론을 위해 타인의 의견에 잠시 귀 기울여 주시기를 정중히 요청합니다.",
+          casual: "지금은 네 목소리를 낮추고 가만히 있어 줄래?"
+        },
+        {
+          word: "꺼져",
+          aliases: ["꺼져라", "ㄲㅈ", "사라져"],
+          category: "curse",
+          level: "🌶️ Lv.3 퇴거 요구",
+          pure: "저리 가! / 비켜!",
+          vibe: "🚪 정중한 공간 분리",
+          etymology: "상대방에게 당장 시야에서 사라지라고 소리치는 거친 명령입니다. 같은 호흡의 '저리 가!' 혹은 '비켜!'로 단호하게 말할 수 있습니다.",
+          formal: "원만한 업무 협의를 위하여 귀하께서는 잠시 퇴실해 주시기 바랍니다.",
+          casual: "더 이상 얼굴 붉히기 싫으니 그만 자리를 비켜줘."
+        },
+        {
+          word: "좆같네",
+          aliases: ["좆같다", "ㅈ같네", "조까", "좆까"],
+          category: "curse",
+          level: "🌶️ Lv.5 극도 불쾌",
+          pure: "최악이네! / 형편없네!",
+          vibe: "🌧️ 극한의 부조리 한탄",
+          etymology: "상황이나 대상이 극도로 혐오스럽고 마음에 들지 않을 때 쓰는 비속어입니다. 똑같은 어절인 '최악이네!' 또는 '형편없네!'로 갈아 끼울 수 있습니다.",
+          formal: "작금의 상황은 심히 유감스럽고 도저히 납득하기 어려운 지경에 이르렀습니다.",
+          casual: "이건 정말이지 너무 불합리하고 처참한 결과야."
+        },
+        {
+          word: "빡치네",
+          aliases: ["빡치다", "개빡치네", "빡침", "열받네"],
+          category: "curse",
+          level: "🌶️ Lv.3 분노 표출",
+          pure: "화나네! / 열받네!",
+          vibe: "🔥 끓어오르는 감정 절제",
+          etymology: "극심한 스트레스나 분노가 치밀 때 쓰는 속어입니다. 동일한 어절인 '화나네!' 혹은 '열받네!'로 깨끗하게 표현할 수 있습니다.",
+          formal: "이와 같은 불합리한 처사에 대하여 심히 큰 공분을 느끼고 있습니다.",
+          casual: "너 정말 날 이렇게까지 속상하고 화나게 만들 거니?"
+        },
+        {
+          word: "미친놈",
+          aliases: ["미친년", "미친새끼", "ㅁㅊ", "미쳤냐"],
+          category: "curse",
+          level: "🌶️ Lv.4 상식 이탈",
+          pure: "괴짜 / 무모한 사람",
+          vibe: "⚡ 비범한 괴짜 순화",
+          etymology: "타인의 비정상적 행동이나 충격적인 무리수를 힐난할 때 쓰는 말입니다. '괴짜' 혹은 '무모한 사람'으로 순화해 부를 수 있습니다.",
+          formal: "해당 결정은 보편적인 사회적 통념과 상식을 완전히 일탈하였습니다.",
+          casual: "너 정말 생각지도 못한 무모한 짓을 저질렀구나!"
+        },
+        {
+          word: "염병",
+          aliases: ["육시랄", "염병하네", "지랄염병"],
+          category: "curse",
+          level: "🌶️ Lv.4 악담·저주",
+          pure: "속 터지네! / 참 답답하네!",
+          vibe: "📜 고전 악담의 정화",
+          etymology: "답답하거나 얄미운 짓을 보며 내뱉는 옛 저주성 비속어입니다. 감정을 살리면서도 '속 터지네!' 또는 '참 답답하네!'로 대체됩니다.",
+          formal: "매우 안타깝고 참담한 행태를 목격하니 마음이 착잡합니다.",
+          casual: "어쩜 그렇게 하나같이 속 터지는 짓만 골라서 하니!"
+        },
+        {
+          word: "쌉소리",
+          aliases: ["개소리", "헛소리", "잡소리"],
+          category: "curse",
+          level: "🌶️ Lv.3 궤변 비판",
+          pure: "헛소리 / 엉뚱한 말",
+          vibe: "🎯 팩트 기반 논박",
+          etymology: "근거 없는 거짓이나 터무니없는 말을 깎아내릴 때 씁니다. 바로 바꿔 쓸 수 있는 '헛소리' 혹은 '엉뚱한 말'로 대체하세요.",
+          formal: "언급하신 주장은 객관적 사실과 부합하지 않는 근거 없는 허구입니다.",
+          casual: "그건 전혀 사실과 맞지 않는 엉뚱한 말이야."
+        },
+        {
+          word: "꼰대",
+          aliases: ["틀딱", "영포티"],
+          category: "curse",
+          level: "🌶️ Lv.2 세대 비하",
+          pure: "고집불통 / 구시대 어른",
+          vibe: "🤝 세대 간 상호 존중",
+          etymology: "자신의 구태의연한 가치관을 일방적으로 강요하는 사람을 뜻합니다. 1:1로 바로 치환되는 '고집불통'으로 점잖게 지칭할 수 있습니다.",
+          formal: "경험에 기반한 고견은 존중하오나 시대의 변화를 수용할 필요가 있습니다.",
+          casual: "선배님 말씀도 좋지만 요즘 방식도 귀담아들어 주세요."
+        },
+
+        // --- MZ 세대 인기 신조어 및 줄임말 ---
+        {
+          word: "킹받네",
+          aliases: ["킹받음", "킹받는다"],
+          category: "slang",
+          level: "✨ Lv.1 유쾌한 신조어",
+          pure: "약오르네! / 얄밉네!",
+          vibe: "🔥 얄미움 위트 순화",
+          etymology: "'열받네'와 영어 'King'이 결합된 신조어입니다. 똑같은 어절 리듬인 '약오르네!' 혹은 '얄밉네!'로 즉시 바꿔 쓰기 아주 좋습니다.",
+          formal: "동료의 짓궂은 행동에 몹시 심기가 불편해졌습니다.",
+          casual: "너 진짜 사람 약 올리는 데 천부적인 재능이 있구나!"
+        },
+        {
+          word: "개웃기다",
+          aliases: ["존나웃겨", "개웃김", "존웃"],
+          category: "slang",
+          level: "✨ Lv.1 과장 감탄",
+          pure: "엄청 웃기다! / 배꼽 빠지네!",
+          vibe: "😂 박장대소 표현 순화",
+          etymology: "접두사 '개-' 대신 동일한 길이의 '엄청 웃기다!' 또는 '배꼽 빠지네!'로 품위 있으면서도 유쾌하게 표현할 수 있습니다.",
+          formal: "해당 일화는 청중의 폭소를 자아낼 만큼 매우 흥미로웠습니다.",
+          casual: "그 이야기 듣고 너무 웃겨서 눈물이 다 났어!"
+        },
+        {
+          word: "쌉가능",
+          aliases: ["쌉파서블", "완전가능"],
+          category: "slang",
+          level: "✨ Lv.1 자신감",
+          pure: "완전 가능! / 당연히 되지!",
+          vibe: "💪 넘치는 자신감",
+          etymology: "100% 해낼 수 있음을 강조하는 은어입니다. 어절이 딱 맞아떨어지는 '완전 가능!' 또는 '당연히 되지!'로 바로 바꿔 씁니다.",
+          formal: "요청하신 과업은 기한 내에 빈틈없이 완수할 수 있습니다.",
+          casual: "이 정도 문제라면 식은 죽 먹기지, 걱정하지 마!"
+        },
+        {
+          word: "뇌절",
+          aliases: ["뇌절하네", "뇌절각"],
+          category: "slang",
+          level: "✨ Lv.2 무리수 제지",
+          pure: "무리수 / 선 넘은 반복",
+          vibe: "✋ 선 넘는 농담 차단",
+          etymology: "1절에서 멈추지 않고 지나치게 반복할 때 쓰는 말입니다. 1:1로 치환되는 '무리수' 혹은 '선 넘은 반복'으로 정확히 대체됩니다.",
+          formal: "동일한 논점의 지나친 중복은 회의의 효율을 크게 저해합니다.",
+          casual: "이제 그 농담은 분위기 봐서 적당히 끝내자."
+        },
+        {
+          word: "어쩔티비",
+          aliases: ["어쩔냉장고", "어쩔스타일러"],
+          category: "slang",
+          level: "✨ Lv.1 유치한 도발",
+          pure: "어쩌라고요! / 안 들려요!",
+          vibe: "🛡️ 무논리 잔소리 방어",
+          etymology: "상대방의 지적이나 훈수를 무논리로 무시할 때 외치는 말로, '어쩌라고요!' 혹은 '안 들려요!'로 직관적으로 대체됩니다.",
+          formal: "해당 제언은 현 안건과 부합하지 않으므로 수렴을 사양합니다.",
+          casual: "네 억지 잔소리는 하나도 안 들리니 그만해!"
+        },
+        {
+          word: "알잘딱깔센",
+          aliases: ["알잘딱"],
+          category: "slang",
+          level: "✨ Lv.1 업무 센스",
+          pure: "알아서 척척! / 눈치 있게 쏙쏙!",
+          vibe: "✨ 최고의 일머리 찬사",
+          etymology: "눈치껏 깔끔하게 처리하는 능력을 뜻하는 5글자 준말로, 경쾌한 4글자 어절 '알아서 척척!'으로 자연스럽게 대체됩니다.",
+          formal: "업무의 핵심 의도를 명확히 파악하여 흠잡을 데 없이 처리하셨습니다.",
+          casual: "정말 센스 만점이다, 내 마음에 쏙 들게 해놨네!"
+        },
+        {
+          word: "갓생",
+          aliases: ["갓생살기"],
+          category: "slang",
+          level: "✨ Lv.0 긍정 라이프",
+          pure: "알찬 하루 / 성실한 일상",
+          vibe: "🌟 자기관리 루틴",
+          etymology: "하루하루 알차고 보람차게 살아가는 일상을 뜻합니다. 2음절/2어절인 '알찬 하루' 또는 '성실한 일상'으로 깔끔히 대체할 수 있습니다.",
+          formal: "규칙적이고 모범적인 일과를 통해 매우 생산적인 하루를 영위했습니다.",
+          casual: "오늘 아침 일찍 일어나서 운동도 하고 공부도 알차게 했어!"
+        },
+        {
+          word: "억까",
+          aliases: ["억까당함"],
+          category: "slang",
+          level: "✨ Lv.2 부당 비판",
+          pure: "억지 트집 / 억지 비난",
+          vibe: "⚖️ 불합리한 모함 방어",
+          etymology: "사소한 일에 무리한 트집을 잡을 때 씁니다. 같은 2음절/2어절인 '억지 트집'이나 '억지 비난'으로 직접 대체하세요.",
+          formal: "합리적 근거가 결여된 부당한 비판은 수용하기 어렵습니다.",
+          casual: "이건 그냥 흠집 내려고 억지 부리는 거잖아!"
+        },
+        {
+          word: "개노잼",
+          aliases: ["노잼", "핵노잼"],
+          category: "slang",
+          level: "✨ Lv.1 지루함",
+          pure: "너무 지루해 / 정말 싱거워",
+          vibe: "🥱 따분함 표현 순화",
+          etymology: "콘텐츠나 상황이 지루할 때 쓰는 비속어 합성어로, '너무 지루해' 혹은 '정말 싱거워'로 편안하게 대체됩니다.",
+          formal: "본 프로그램은 청중의 호응과 흥미를 이끌어내기에 다소 부족했습니다.",
+          casual: "기대했던 것보다 너무 싱겁고 지루하네."
+        },
+        {
+          word: "존버",
+          aliases: ["존버한다", "존버중"],
+          category: "slang",
+          level: "✨ Lv.2 인내",
+          pure: "끝까지 버티기 / 꾹 참기",
+          vibe: "⏳ 끈기 있는 인내",
+          etymology: "비속어가 섞인 인내 표현입니다. 어절에 꼭 맞춘 '끝까지 버티기' 또는 '꾹 참기'로 격려할 수 있습니다.",
+          formal: "어려운 시장 국면 속에서도 흔들림 없이 묵묵히 인내하겠습니다.",
+          casual: "언젠가는 반드시 좋은 날이 올 테니 꾹 참고 기다리자!"
+        },
+        {
+          word: "졌잘싸",
+          aliases: ["졌지만잘싸웠다"],
+          category: "slang",
+          level: "✨ Lv.0 격려",
+          pure: "잘 싸웠다! / 아쉬운 명승부!",
+          vibe: "👏 패자에 대한 찬사",
+          etymology: "패배했으나 투혼을 다한 선수에게 보내는 찬사로, '잘 싸웠다!' 혹은 '아쉬운 명승부!'로 시원하게 외칠 수 있습니다.",
+          formal: "결과는 비록 아쉬우나 보여준 투지와 열정은 대단히 훌륭했습니다.",
+          casual: "비록 졌지만 진짜 멋있었어, 후회 없는 승부였다!"
+        },
+
+        // --- 2026 대세 인방·커뮤 밈 감탄사군 ---
+        {
+          word: "샤갈",
+          aliases: ["샷갈", "샤갈!", "샤갈하다", "샷건"],
+          category: "meme",
+          level: "⚡ Lv.2 인방 탄식",
+          pure: "아이고! / 아뿔싸!",
+          vibe: "🎮 돌발 불운·아쉬움 정화",
+          etymology: "게임이 뜻대로 안 풀릴 때 책상을 치는 샷건이나 탄식 비속어가 변형된 밈입니다. 동일한 1~2음절 감탄사인 '아이고!' 또는 '아뿔싸!'로 즉각 외쳐보세요.",
+          formal: "예상치 못한 돌발 변수로 인하여 심히 애석하고 안타까운 심정을 금할 길이 없습니다.",
+          casual: "아이고 아까워라! 거의 다 이긴 판이었는데 탄식이 절로 터져 나오네!"
+        },
+        {
+          word: "야르",
+          aliases: ["야르!", "야르르", "야르~", "야르요"],
+          category: "meme",
+          level: "🎉 Lv.1 쾌재 환호",
+          pure: "야호! / 우와!",
+          vibe: "🥳 벅차오르는 승리감 표현",
+          etymology: "극적인 승리나 횡재 시 '야호/야스(Yes)'가 변형된 환호 밈입니다. 어절과 호흡이 완벽히 일치하는 '야호!' 또는 '우와!'로 바로 바꿔 외칠 수 있습니다.",
+          formal: "소기의 목적을 완벽하게 달성하였기에 더없는 성취감과 환희를 표합니다.",
+          casual: "우와! 드디어 우리가 해냈구나, 너무 신나고 짜릿해!"
+        },
+        {
+          word: "줴줴이야",
+          aliases: ["줴줴", "제제이야", "GG이야", "줴줴이"],
+          category: "meme",
+          level: "🏳️ Lv.2 승복 밈",
+          pure: "끝났다! / 완패다!",
+          vibe: "🤝 상황 종결의 쿨한 수용",
+          etymology: "Good Game (GG)에서 유래하여 패배를 쿨하게 인정하는 밈입니다. 같은 어절 호흡인 '끝났다!' 혹은 '완패다!'로 깔끔하게 대체할 수 있습니다.",
+          formal: "작금의 형세는 역전이 어려우므로 현 단계에서 결과를 겸허히 수용하겠습니다.",
+          casual: "이번 승부는 여기서 깔끔하게 완패를 인정하고 물러서자!"
+        },
+        {
+          word: "엄",
+          aliases: ["엄...", "엄..", "엄준식", "어엄", "엄거리네"],
+          category: "meme",
+          level: "🤐 Lv.1 침묵 밈",
+          pure: "음... / 글쎄...",
+          vibe: "🤔 뻘쭘한 순간의 정중한 숙고",
+          etymology: "말문이 턱 막히거나 당황스러운 순간 침묵하는 밈입니다. 동일한 1음절/1어절인 '음...'이나 '글쎄...'로 자연스럽게 바꿔 쓸 수 있습니다.",
+          formal: "제시하신 사안은 매우 곤혹스러워 즉답이 어려우니 심도 있는 숙고의 시간을 요합니다.",
+          casual: "음... 듣고 보니 너무 황당하고 난감해서 차마 말이 안 나오네."
+        },
+        {
+          word: "폼 미쳤다",
+          aliases: ["폼미쳤다", "폼미", "폼미쳤네"],
+          category: "meme",
+          level: "✨ Lv.1 극찬 밈",
+          pure: "실력 최고다! / 물 올랐네!",
+          vibe: "👏 감탄을 자아내는 전성기 찬사",
+          etymology: "기량이나 퍼포먼스가 압도적일 때 보내는 찬사입니다. 자연스러운 구어체인 '실력 최고다!' 혹은 '물 올랐네!'로 어절에 맞춰 시원하게 외쳐보세요.",
+          formal: "귀하께서 보여주신 업무 수행 능력과 성과는 가히 독보적이며 경이롭습니다.",
+          casual: "너 오늘 진짜 실력 최고다, 물 만난 물고기 같아!"
+        },
+        {
+          word: "중꺾마",
+          aliases: ["꺾이지않는마음"],
+          category: "meme",
+          level: "🛡️ Lv.1 불굴 밈",
+          pure: "불굴의 투지! / 꺾이지 않는 마음!",
+          vibe: "🔥 위기 속 굳은 투지",
+          etymology: "어떤 역경에도 포기하지 않는 강인한 마음가짐을 뜻합니다. '불굴의 투지!' 혹은 '꺾이지 않는 마음!'으로 힘차게 대체할 수 있습니다.",
+          formal: "비록 시련이 닥치더라도 포기하지 않는 강인한 집념과 도전 정신이 가장 소중합니다.",
+          casual: "끝날 때까지 끝난 게 아니야, 절대 기죽지 말고 버텨보자!"
+        }
+      ];
+
+      // Prefix Replacement Rules
+      const prefixReplacements = [
+        { regex: /^(씨발|시발|ㅅㅂ|ㅆㅂ)([가-힣]*)/, prefix: '씨발', replaceWord: '대단히 유감스럽게도 ', vibe: '극단적 분노 정화', level: '🌶️ Lv.5' },
+        { regex: /^개([가-힣]+)/, prefix: '개', replaceWord: '몹시 ', vibe: '비속 접두어 순화', level: '🌶️ Lv.2' },
+        { regex: /^존([가-힣]+)/, prefix: '존', replaceWord: '매우 ', vibe: '비속 접두어 순화', level: '🌶️ Lv.3' },
+        { regex: /^좆([가-힣]+)/, prefix: '좆', replaceWord: '심히 불쾌하게 ', vibe: '성적 비속어 순화', level: '🌶️ Lv.5' },
+        { regex: /^킹([가-힣]+)/, prefix: '킹', replaceWord: '대단히 ', vibe: '과장 접두어 순화', level: '✨ Lv.1' },
+        { regex: /^쌉([가-힣]+)/, prefix: '쌉', replaceWord: '완전히 ', vibe: '강조어 순화', level: '✨ Lv.1' },
+        { regex: /^핵([가-힣]+)/, prefix: '핵', replaceWord: '극도로 ', vibe: '극단 수식어 순화', level: '✨ Lv.1' },
+        { regex: /^졸라([가-힣]+)/, prefix: '졸라', replaceWord: '무척 ', vibe: '비속어 순화', level: '🌶️ Lv.2' }
+      ];
+
+      // Trending Ranking List
+      const trendingWords = [
+        { rank: 1, word: "샤갈", change: "NEW", type: "up" },
+        { rank: 2, word: "야르", change: "NEW", type: "up" },
+        { rank: 3, word: "줴줴이야", change: "NEW", type: "up" },
+        { rank: 4, word: "엄", change: "NEW", type: "up" },
+        { rank: 5, word: "씨발", change: "▲2", type: "up" },
+        { rank: 6, word: "킹받네", change: "-", type: "same" },
+        { rank: 7, word: "개새끼", change: "▼1", type: "down" },
+        { rank: 8, word: "폼 미쳤다", change: "NEW", type: "up" },
+        { rank: 9, word: "지랄", change: "-", type: "same" },
+        { rank: 10, word: "알잘딱깔센", change: "-", type: "same" }
+      ];
+
+      // Quiz Database (욕설 및 신조어 통합)
+      const quizQuestions = [
+        {
+          question: "게임에서 거의 다 이긴 판을 아쉽게 졌을 때 외치는 '샤갈' 대신 바로 내뱉을 수 있는 동일 어절 순화어는?",
+          options: [
+            "아이고! / 아뿔싸!",
+            "샤갈 미술관 가자!",
+            "샤워하고 갈비 먹자!",
+            "샤방샤방 변신!"
+          ],
+          answer: 0,
+          explanation: "'샤갈'은 샷건(책상 치기)이나 탄식 비속어가 변형된 밈입니다. 동일한 1~2음절 감탄사인 '아이고!' 또는 '아뿔싸!'로 즉시 바꿔 외치면 품격을 지킬 수 있습니다."
+        },
+        {
+          question: "승리의 쾌감을 맛보며 인터넷 밈으로 \"야르!\"를 외칠 때, 실제로 대체해서 바로 외칠 수 있는 감탄사는?",
+          options: [
+            "야호! / 우와!",
+            "야간 근무 화이팅!",
+            "야생으로 떠나자!",
+            "야식을 먹자!"
+          ],
+          answer: 0,
+          explanation: "'야르'는 환호 밈입니다. 어절 길이와 호흡이 똑같은 '야호!' 또는 '우와!'로 바로 대체해 신나게 외칠 수 있습니다."
+        },
+        {
+          question: "판세가 완전히 기울어 패배가 확정되었을 때 \"줴줴이야\" 대신 어절에 맞게 바로 쓸 수 있는 순화어는?",
+          options: [
+            "끝났다! / 완패다!",
+            "줴줴라는 친구 부르기",
+            "제주도 돼지고기 먹기",
+            "죄송합니다 이야기하기"
+          ],
+          answer: 0,
+          explanation: "'줴줴이야'는 Good Game (GG)에서 유래한 밈입니다. 동일한 어절 호흡인 '끝났다!' 혹은 '완패다!'로 깔끔하게 승복할 수 있습니다."
+        },
+        {
+          question: "너무 황당해서 말문이 막힐 때 내뱉는 \"엄...\" 대신 같은 호흡으로 바꿀 수 있는 순화어는?",
+          options: [
+            "음... / 글쎄...",
+            "엄마 전화 받기",
+            "엄숙한 애국가 제창",
+            "엄지척 칭찬하기"
+          ],
+          answer: 0,
+          explanation: "'엄'은 당황스러운 순간 침묵하는 밈입니다. 동일한 1음절/1어절 호흡인 '음...'이나 '글쎄...'로 자연스럽게 침묵을 표현할 수 있습니다."
+        },
+        {
+          question: "회의 중 상대방의 터무니없는 억지에 화가 날 때, '지랄' 대신 문장에 바로 갈아 끼울 수 있는 순화어는?",
+          options: [
+            "생떼 / 억지 / 난리",
+            "랄랄라 신나는 노래",
+            "지혜롭고 알찬 제안",
+            "지하철 알림방송"
+          ],
+          answer: 0,
+          explanation: "'지랄'은 문맥에 맞춰 동일 어절인 '생떼' 혹은 '억지', '난리'(예: 생떼 부리네, 억지 쓰네)로 1:1 대체해 쓸 수 있습니다."
+        },
+        {
+          question: "상대방의 무례함에 격분하여 \"야 이 개새끼야!\" 대신 같은 어절로 점잖게 바꿀 수 있는 표현은?",
+          options: [
+            "무례한 사람 / 나쁜 사람",
+            "귀여운 강아지",
+            "새끼손가락 약속",
+            "충직한 진돗개"
+          ],
+          answer: 0,
+          explanation: "인격을 동물에 빗대 모욕하는 대신, '무례한 사람' 또는 '나쁜 사람'으로 1:1 대체하는 것이 바른말의 지혜입니다."
+        }
+      ];
+
+      let currentQuizIdx = 0;
+      let quizAnswered = false;
+      let currentFilterMode = 'all';
+      let currentCatalogFilter = 'all';
+
+      const CUSTOM_STORAGE_KEY = 'bareunmal_custom_contributions_v2';
+
+      // Load custom words from localStorage (with lively initial seed if empty)
+      function getCustomWordsFromStorage() {
+        try {
+          const saved = localStorage.getItem(CUSTOM_STORAGE_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+          }
+        } catch (e) {
+          console.error("Failed to load custom contributions", e);
+        }
+
+        // Default initial community contributions so user immediately sees how it works
+        const initialSeeds = [
+          {
+            id: "seed_1",
+            word: "중꺾마",
+            aliases: ["중꺽마", "꺾이지않는마음"],
+            category: "meme",
+            level: "👑 사용자 제보 순화어",
+            pure: "불굴의 투지! / 꺾이지 않는 마음!",
+            vibe: "✨ 사용자 기여 반영 어휘",
+            etymology: "'중요한 것은 꺾이지 않는 마음'의 줄임말. 어떤 역경에도 포기하지 않는 강인한 집념을 뜻합니다.",
+            formal: "금번 프로젝트는 난관에 굴하지 않는 '불굴의 투지'로 완수하겠습니다.",
+            casual: "포기하지 마! 우리에겐 꺾이지 않는 마음이 있잖아!",
+            isCustom: true,
+            reportedAt: "최근 제보",
+            likes: 24
+          },
+          {
+            id: "seed_2",
+            word: "억까",
+            aliases: ["억까당함", "억까하네"],
+            category: "slang",
+            level: "👑 사용자 제보 순화어",
+            pure: "억지 트집 / 억지 비난",
+            vibe: "✨ 사용자 기여 반영 어휘",
+            etymology: "'억지로 까다'의 줄임말로, 말도 안 되는 억지 이유로 트집을 잡거나 부당하게 비난하는 행위를 뜻합니다.",
+            formal: "근거 없는 비합리적 억지 트집에 대해 정중히 재검토를 요청드립니다.",
+            casual: "너무 억지 비난하지 말고 서로 좋게좋게 이야기하자!",
+            isCustom: true,
+            reportedAt: "최근 제보",
+            likes: 18
+          }
+        ];
+        saveCustomWordsToStorage(initialSeeds);
+        return initialSeeds;
+      }
+
+      function saveCustomWordsToStorage(list) {
+        try {
+          localStorage.setItem(CUSTOM_STORAGE_KEY, JSON.stringify(list));
+        } catch (e) {
+          console.error("Failed to save custom contributions", e);
+        }
+      }
+
+      function loadCustomWords() {
+        const customList = getCustomWordsFromStorage();
+        // Remove existing custom entries from dictionary memory
+        for (let i = dictionary.length - 1; i >= 0; i--) {
+          if (dictionary[i].isCustom) dictionary.splice(i, 1);
+        }
+        // Unshift custom items to dictionary top so they match first
+        customList.slice().reverse().forEach(item => {
+          dictionary.unshift(item);
+        });
+
+        // Update counts
+        const count = customList.length;
+        const pillCountEl = document.getElementById("custom-pill-count");
+        if (pillCountEl) pillCountEl.innerText = count;
+        const viewBadgeEl = document.getElementById("custom-view-badge");
+        if (viewBadgeEl) viewBadgeEl.innerText = `${count}개`;
+
+        renderRecentCustomSidebar(customList);
+        renderCustomCardsView(customList);
+      }
+
+      // Render recent contributions in sidebar
+      function renderRecentCustomSidebar(list) {
+        const sideEl = document.getElementById("recent-custom-list");
+        if (!sideEl) return;
+        if (!list || list.length === 0) {
+          sideEl.innerHTML = `
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; padding: 1rem 0;">
+              아직 제보된 단어가 없습니다.<br>
+              <button onclick="openReportModal()" style="margin-top: 0.5rem; background: var(--accent-amber); color: #000; border: none; border-radius: 6px; padding: 0.25rem 0.6rem; font-weight: 700; cursor: pointer; font-size: 0.75rem;">첫 단어 제보하기</button>
+            </div>
+          `;
+          return;
+        }
+
+        sideEl.innerHTML = list.slice(0, 4).map(item => `
+          <div class="trending-item" onclick="quickSearch('${item.word}')" style="border-left: 2px solid var(--accent-amber); padding-left: 0.6rem;">
+            <div class="trending-left">
+              <span style="font-size: 0.75rem; color: var(--accent-amber); font-weight: 800;">👑</span>
+              <span class="trending-word">${item.word}</span>
+            </div>
+            <span style="font-size: 0.775rem; color: var(--accent-blue-light); font-weight: 700; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              ${item.pure.split('/')[0].trim()}
+            </span>
+          </div>
+        `).join('');
+      }
+
+      // Render custom cards collection in main portal area
+      function renderCustomCardsView(list) {
+        const container = document.getElementById("custom-cards-container");
+        if (!container) return;
+        if (!list || list.length === 0) {
+          container.innerHTML = `
+            <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👑</div>
+              <h4 style="font-size: 1.1rem; color: #f8fafc; font-weight: 700; margin-bottom: 0.35rem;">아직 직접 제보된 어휘가 없습니다</h4>
+              <p style="font-size: 0.85rem; max-width: 360px; margin: 0 auto 1.25rem auto;">
+                평소 자주 쓰이는 신조어, 은어, 욕설의 알맞은 순화어를 제보해 사전에 첫 발자국을 남겨보세요!
+              </p>
+              <button onclick="openReportModal()" class="submit-form-btn" style="display: inline-flex; width: auto; padding: 0.6rem 1.25rem; font-size: 0.9rem; background: var(--accent-amber); color: #0b0f19;">
+                첫 어휘 제보하기 ✍️
+              </button>
+            </div>
+          `;
+          return;
+        }
+
+        container.innerHTML = list.map(item => `
+          <div style="background: var(--bg-input); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.15rem; transition: all 0.2s;" onmouseenter="this.style.borderColor='var(--accent-amber)'" onmouseleave="this.style.borderColor='var(--border-color)'">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 1.15rem; font-weight: 900; color: #f8fafc;">${item.word}</span>
+                <span style="font-size: 0.725rem; background: rgba(245, 158, 11, 0.15); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.3); padding: 0.15rem 0.5rem; border-radius: 9999px; font-weight: 700;">👑 사용자 제보</span>
+                <span style="font-size: 0.725rem; color: var(--text-muted);">${item.reportedAt || '최근'}</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="delete-custom-btn" onclick="deleteCustomWord('${item.word}', event)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  삭제
+                </button>
+                <button class="today-try-btn" style="width: auto; padding: 0.35rem 0.8rem; font-size: 0.775rem;" onclick="quickSearch('${item.word}')">
+                  순화 상세 카드 보기 →
+                </button>
+              </div>
+            </div>
+            <div style="margin-bottom: 0.5rem;">
+              <span style="font-size: 0.825rem; color: var(--accent-emerald); font-weight: 800;">⚡ 1:1 대체 순화어:</span>
+              <span style="font-size: 1.05rem; font-weight: 800; color: var(--accent-blue-light); margin-left: 0.35rem;">${item.pure}</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 0.4rem;">
+              ${item.etymology}
+            </p>
+          </div>
+        `).join('');
+      }
+
+      // Delete a custom word
+      function deleteCustomWord(word, e) {
+        if (e) e.stopPropagation();
+        if (!confirm(`'${word}' 제보 어휘를 사전에 삭제하시겠습니까?`)) return;
+
+        let customList = getCustomWordsFromStorage();
+        customList = customList.filter(c => c.word.toLowerCase() !== word.toLowerCase());
+        saveCustomWordsToStorage(customList);
+        loadCustomWords();
+        renderDictCatalog(currentCatalogFilter);
+        showToast(`🗑️ '${word}' 제보 어휘가 삭제되었습니다.`);
+
+        // If currently viewing deleted word, clear result card
+        const currentDisplayed = document.getElementById("res-original").innerText;
+        if (currentDisplayed === word) {
+          document.getElementById("result-card").style.display = "none";
+        }
+      }
+
+      // Quick hint helper for inline report
+      function applyHintToPure(hint) {
+        const input = document.getElementById("inline-report-pure");
+        if (input) {
+          input.value = hint;
+          input.focus();
+        }
+      }
+
+      function selectInlineCategory(cat, btn) {
+        document.querySelectorAll("#inline-report-form .cat-pill").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("inline-report-category").value = cat;
+      }
+
+      function selectModalCategory(cat, btn) {
+        document.querySelectorAll("#report-modal .cat-pill").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("report-category").value = cat;
+      }
+
+      // Show Unregistered Card when word not found
+      function showUnregisteredCard(query) {
+        const resultCard = document.getElementById("result-card");
+        const customListView = document.getElementById("custom-list-view");
+        const unregisteredCard = document.getElementById("unregistered-card");
+        const aiAlertBanner = document.getElementById("ai-alert-banner");
+
+        resultCard.style.display = "none";
+        if (customListView) customListView.style.display = "none";
+        aiAlertBanner.style.display = "none";
+
+        document.getElementById("unregistered-word-highlight").innerText = query;
+        document.getElementById("inline-report-word").value = query;
+        document.getElementById("inline-report-pure").value = "";
+        document.getElementById("inline-report-desc").value = "";
+
+        unregisteredCard.style.display = "block";
+        setTimeout(() => {
+          document.getElementById("inline-report-pure").focus();
+        }, 100);
+
+        unregisteredCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Core word registration function (used by both inline and modal)
+      function registerCustomWord(word, pure, desc, category) {
+        if (!word || !pure) return;
+
+        const newEntry = {
+          id: "custom_" + Date.now(),
+          word: word.trim(),
+          aliases: [],
+          category: category || "custom",
+          level: "👑 사용자 제보 순화어",
+          pure: pure.trim(),
+          vibe: "✨ 사용자 기여 실시간 반영 어휘",
+          etymology: desc.trim() || `사용자가 직접 제보하여 사전에 영구 반영된 순화어입니다. 거친 표현 대신 '${pure.trim()}'(으)로 1:1 품격 있게 소통할 수 있습니다.`,
+          formal: `공식 소통: "${pure.trim()}" 표현을 사용하여 정중하고 사려 깊게 전달합니다.`,
+          casual: `일상 대화: "${pure.trim()}"라고 말하니 상대방도 훨씬 유쾌하고 정겹게 받아들이네요!`,
+          isCustom: true,
+          reportedAt: new Date().toLocaleDateString("ko-KR"),
+          likes: 1
+        };
+
+        const customList = getCustomWordsFromStorage();
+        // Check if word already exists in custom list
+        const existingIdx = customList.findIndex(c => c.word.toLowerCase() === word.trim().toLowerCase());
+        if (existingIdx >= 0) {
+          customList[existingIdx] = newEntry;
+        } else {
+          customList.unshift(newEntry);
+        }
+
+        saveCustomWordsToStorage(customList);
+        loadCustomWords();
+        renderDictCatalog(currentCatalogFilter);
+
+        // Hide unregistered card
+        document.getElementById("unregistered-card").style.display = "none";
+        const customListView = document.getElementById("custom-list-view");
+        if (customListView) customListView.style.display = "none";
+
+        // Trigger confetti celebration
+        triggerConfetti();
+
+        // Show toast
+        showToast(`🎉 '${word}' 순화어가 사전에 즉시 등록되어 반영되었습니다!`);
+
+        // Immediately display the freshly registered word in result card!
+        displayResult(newEntry, word.trim(), false);
+        document.getElementById("search-input").value = word.trim();
+        document.getElementById("clear-btn").style.display = "block";
+      }
+
+      // Inline Report Submit Handler
+      function handleInlineReportSubmit(e) {
+        e.preventDefault();
+        const word = document.getElementById("inline-report-word").value.trim();
+        const pure = document.getElementById("inline-report-pure").value.trim();
+        const category = document.getElementById("inline-report-category").value;
+        const desc = document.getElementById("inline-report-desc").value.trim();
+
+        registerCustomWord(word, pure, desc, category);
+      }
+
+      // Modal Report Submit Handler
+      function handleReportSubmit(e) {
+        e.preventDefault();
+        const word = document.getElementById("report-word").value.trim();
+        const pure = document.getElementById("report-pure").value.trim();
+        const category = document.getElementById("report-category").value;
+        const desc = document.getElementById("report-desc").value.trim();
+
+        closeReportModal();
+        e.target.reset();
+
+        registerCustomWord(word, pure, desc, category);
+      }
+
+      // Filter catalog modal
+      function filterCatalog(category, btnEl) {
+        currentCatalogFilter = category;
+        document.querySelectorAll("#dict-modal .cat-pill").forEach(p => p.classList.remove("active"));
+        if (btnEl) btnEl.classList.add("active");
+        renderDictCatalog(category);
+      }
+
+      // On Load
+      document.addEventListener("DOMContentLoaded", () => {
+        loadCustomWords();
+        renderTrendingList();
+        renderDictCatalog('all');
+
+        const searchInput = document.getElementById("search-input");
+        const clearBtn = document.getElementById("clear-btn");
+        searchInput.addEventListener("input", (e) => {
+          clearBtn.style.display = e.target.value.length > 0 ? "block" : "none";
+        });
+      });
+
+      // Filter Mode Switcher
+      function setMode(mode, btnEl) {
+        currentFilterMode = mode;
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btnEl.classList.add("active");
+
+        const input = document.getElementById("search-input");
+        const customListView = document.getElementById("custom-list-view");
+        const resultCard = document.getElementById("result-card");
+        const unregisteredCard = document.getElementById("unregistered-card");
+
+        if (mode === 'custom') {
+          input.placeholder = "사용자가 제보한 단어를 검색하거나 확인해보세요 (예: 중꺾마, 억까...)";
+          if (customListView) customListView.style.display = "block";
+          resultCard.style.display = "none";
+          unregisteredCard.style.display = "none";
+          loadCustomWords();
+        } else {
+          if (customListView) customListView.style.display = "none";
+          if (mode === 'meme') {
+            input.placeholder = "인방·커뮤 밈 감탄사를 입력하세요 (예: 샤갈, 야르, 줴줴이야, 엄, 폼 미쳤다...)";
+          } else if (mode === 'sentence') {
+            input.placeholder = "욕설이나 밈이 섞인 긴 문장을 입력해보세요 (예: 야 이 개새끼야 샤갈 닥쳐라)";
+          } else if (mode === 'curse') {
+            input.placeholder = "순화할 욕설을 입력하세요 (예: 씨발, 개새끼, 지랄, 병신, 닥쳐, 꺼져...)";
+          } else if (mode === 'slang') {
+            input.placeholder = "순화할 MZ 신조어를 입력하세요 (예: 킹받네, 개웃기다, 쌉가능, 뇌절...)";
+          } else {
+            input.placeholder = "단어나 문장을 입력하세요 (예: 샤갈, 야르, 줴줴이야, 엄, 씨발, 킹받네...)";
+          }
+        }
+      }
+
+      // Render Trending
+      function renderTrendingList() {
+        const listEl = document.getElementById("trending-list");
+        if (!listEl) return;
+        listEl.innerHTML = trendingWords.map(item => `
+          <div class="trending-item" onclick="quickSearch('${item.word}')">
+            <div class="trending-left">
+              <span class="rank-num ${item.rank <= 3 ? 'rank-top' : ''}">${item.rank}</span>
+              <span class="trending-word">${item.word}</span>
+            </div>
+            <span class="rank-status ${item.type === 'up' ? 'rank-up' : 'rank-same'}">${item.change}</span>
+          </div>
+        `).join('');
+      }
+
+      // Render Dictionary Catalog Modal
+      function renderDictCatalog(filterCategory = 'all') {
+        const catEl = document.getElementById("dict-catalog-list");
+        if (!catEl) return;
+
+        // Update counts on filter buttons
+        const totalCount = dictionary.length;
+        const customCount = dictionary.filter(d => d.isCustom).length;
+        const memeCount = dictionary.filter(d => d.category === 'meme').length;
+        const curseCount = dictionary.filter(d => d.category === 'curse').length;
+        const slangCount = dictionary.filter(d => d.category === 'slang').length;
+
+        const countAll = document.getElementById("cat-count-all");
+        if (countAll) countAll.innerText = totalCount;
+        const countCustom = document.getElementById("cat-count-custom");
+        if (countCustom) countCustom.innerText = customCount;
+        const countMeme = document.getElementById("cat-count-meme");
+        if (countMeme) countMeme.innerText = memeCount;
+        const countCurse = document.getElementById("cat-count-curse");
+        if (countCurse) countCurse.innerText = curseCount;
+        const countSlang = document.getElementById("cat-count-slang");
+        if (countSlang) countSlang.innerText = slangCount;
+
+        let filtered = dictionary;
+        if (filterCategory === 'custom') {
+          filtered = dictionary.filter(d => d.isCustom);
+        } else if (filterCategory === 'meme') {
+          filtered = dictionary.filter(d => d.category === 'meme');
+        } else if (filterCategory === 'curse') {
+          filtered = dictionary.filter(d => d.category === 'curse');
+        } else if (filterCategory === 'slang') {
+          filtered = dictionary.filter(d => d.category === 'slang');
+        }
+
+        if (filtered.length === 0) {
+          catEl.innerHTML = `
+            <div style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted);">
+              해당 분류에 등록된 어휘가 아직 없습니다.<br>
+              <button onclick="closeDictionaryModal(); openReportModal();" style="margin-top: 0.75rem; background: var(--accent-amber); color: #0b0f19; border: none; border-radius: 6px; padding: 0.4rem 0.85rem; font-weight: 800; cursor: pointer;">
+                이 카테고리에 첫 어휘 제보하기 ✍️
+              </button>
+            </div>
+          `;
+          return;
+        }
+
+        catEl.innerHTML = filtered.map(item => {
+          const isCurse = item.category === 'curse';
+          const isCustom = item.isCustom;
+          const borderColor = isCustom ? 'var(--accent-amber)' : (isCurse ? 'var(--accent-red)' : 'var(--accent-blue-light)');
+          
+          return `
+            <div style="background: var(--bg-input); padding: 0.95rem; border-radius: 8px; border-left: 3.5px solid ${borderColor}; cursor: pointer; transition: background 0.15s;" onmouseenter="this.style.background='var(--bg-card-hover)'" onmouseleave="this.style.background='var(--bg-input)'" onclick="quickSearch('${item.word}'); closeDictionaryModal();">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.35rem;">
+                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                  <strong style="color: ${isCustom ? '#fde68a' : (isCurse ? 'var(--accent-red)' : '#f8fafc')}; font-size: 1.05rem;">${item.word}</strong>
+                  ${item.aliases && item.aliases.length > 0 ? `<span style="font-size: 0.75rem; color: var(--text-muted);">(${item.aliases.join(', ')})</span>` : ''}
+                  ${isCustom ? `<span style="font-size: 0.675rem; background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.1rem 0.4rem; border-radius: 9999px; font-weight: 800;">👑 제보</span>` : ''}
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.85rem; color: var(--accent-emerald); font-weight: 800;">→ ${item.pure}</span>
+                  ${isCustom ? `
+                    <button class="delete-custom-btn" style="padding: 0.15rem 0.4rem; font-size: 0.7rem;" onclick="deleteCustomWord('${item.word}', event)">
+                      삭제
+                    </button>
+                  ` : ''}
+                </div>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">${item.etymology}</p>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function clearSearch() {
+        const input = document.getElementById("search-input");
+        input.value = "";
+        input.focus();
+        document.getElementById("clear-btn").style.display = "none";
+      }
+
+      function quickSearch(word) {
+        document.getElementById("search-input").value = word;
+        document.getElementById("clear-btn").style.display = "block";
+        processSearch(word);
+        window.scrollTo({ top: 380, behavior: 'smooth' });
+      }
+
+      function handleSearchSubmit(e) {
+        e.preventDefault();
+        const query = document.getElementById("search-input").value.trim();
+        if (!query) {
+          showToast("검색할 단어나 문장을 입력해 주세요!");
+          return;
+        }
+        processSearch(query);
+      }
+
+      // Core Search & Automatic Sentence Purification Engine
+      function processSearch(query) {
+        const resultCard = document.getElementById("result-card");
+        const customListView = document.getElementById("custom-list-view");
+        const aiLoadingCard = document.getElementById("ai-loading-card");
+        const unregisteredCard = document.getElementById("unregistered-card");
+        const aiAlertBanner = document.getElementById("ai-alert-banner");
+
+        resultCard.style.display = "none";
+        if (customListView) customListView.style.display = "none";
+        unregisteredCard.style.display = "none";
+        aiAlertBanner.style.display = "none";
+
+        // Check if query is a long sentence containing swear words or multiple words
+        const wordsInQuery = query.split(/\s+/);
+        if (wordsInQuery.length >= 2 || currentFilterMode === 'sentence') {
+          // Check if any swear words exist in sentence
+          let purifiedSentence = query;
+          let replacedCount = 0;
+          let detectedCurses = [];
+
+          dictionary.forEach(item => {
+            const matchKeywords = [item.word, ...(item.aliases || [])];
+            matchKeywords.forEach(kw => {
+              if (purifiedSentence.includes(kw)) {
+                const primaryTerm = item.pure.split('/')[0].replace(/[!?,.]/g, '').trim();
+                purifiedSentence = purifiedSentence.split(kw).join(`[${primaryTerm}]`);
+                replacedCount++;
+                if (!detectedCurses.includes(item.word)) detectedCurses.push(item.word);
+              }
+            });
+          });
+
+          // Also check prefixes
+          prefixReplacements.forEach(rule => {
+            if (rule.regex.test(purifiedSentence)) {
+              purifiedSentence = purifiedSentence.replace(rule.regex, `${rule.replaceWord}$2`);
+              replacedCount++;
+            }
+          });
+
+          if (replacedCount > 0) {
+            const sentenceResult = {
+              word: query,
+              category: "sentence",
+              level: "🚨 복합 문장 정화",
+              pure: purifiedSentence,
+              vibe: "🕊️ 문장 전체 양반식 비즈니스 정화",
+              etymology: `문장 내 감지된 비속어(${detectedCurses.join(', ')})를 품격 있는 표준어와 완곡한 존칭으로 일괄 치환하여 의사소통의 품위를 회복했습니다.`,
+              formal: `공식 입장: "${purifiedSentence}."`,
+              casual: `상냥한 표현: "${purifiedSentence}!"`
+            };
+            displayResult(sentenceResult, query, false);
+            return;
+          }
+        }
+
+        // 1. Direct or Alias Match
+        const cleanQ = query.toLowerCase().replace(/\s+/g, '');
+        const found = dictionary.find(item => {
+          if (item.word.toLowerCase() === cleanQ) return true;
+          if (item.aliases && item.aliases.some(a => a.toLowerCase() === cleanQ)) return true;
+          return false;
+        }) || dictionary.find(item => {
+          if (cleanQ.includes(item.word.toLowerCase())) return true;
+          if (item.aliases && item.aliases.some(a => cleanQ.includes(a.toLowerCase()))) return true;
+          return false;
+        });
+
+        if (found) {
+          displayResult(found, query, false);
+          return;
+        }
+
+        // 2. Prefix Regex Match
+        for (const rule of prefixReplacements) {
+          const match = query.match(rule.regex);
+          if (match) {
+            const stem = match[2] || match[1];
+            const synthesized = {
+              word: query,
+              category: "prefix",
+              level: rule.level,
+              pure: `${rule.replaceWord}${stem}`,
+              vibe: `✨ ${rule.vibe}`,
+              etymology: `격한 접두사 '${rule.prefix}'를 완곡하고 품위 있는 수식어 '${rule.replaceWord.trim()}'(으)로 순화하여 상대방에게 거부감 없는 정중한 뜻을 전달합니다.`,
+              formal: `해당 건에 대하여 ${rule.replaceWord}${stem} 상태임을 알려드립니다.`,
+              casual: `정말이지 ${rule.replaceWord}${stem} 기분이야!`
+            };
+            displayResult(synthesized, query, false);
+            return;
+          }
+        }
+
+        // 3. Unregistered word -> Show Unregistered & Instant Contribution UI
+        aiLoadingCard.style.display = "block";
+        const aiStatusText = document.getElementById("ai-status-text");
+        aiStatusText.innerText = `'${query}' 사전 데이터베이스 검색 중...`;
+
+        setTimeout(() => {
+          aiLoadingCard.style.display = "none";
+          showUnregisteredCard(query);
+        }, 350);
+      }
+
+      // Display Final Card
+      function displayResult(data, originalInput, isAiInferred) {
+        const resultCard = document.getElementById("result-card");
+        const aiAlertBanner = document.getElementById("ai-alert-banner");
+
+        const isCurse = data.category === 'curse' || (data.level && data.level.includes('🌶️'));
+        if (isCurse) {
+          resultCard.classList.add("is-profanity");
+        } else {
+          resultCard.classList.remove("is-profanity");
+        }
+
+        document.getElementById("res-original").innerText = originalInput;
+        document.getElementById("res-translated").innerHTML = `<span>${data.pure}</span>`;
+        document.getElementById("res-vibe").innerText = data.vibe;
+        document.getElementById("res-level").innerText = data.level || "품격 순화";
+        document.getElementById("res-badge").innerText = isAiInferred ? "AI 문맥 추론" : "100% 품격 패치";
+        document.getElementById("res-etymology").innerText = data.etymology;
+        document.getElementById("res-formal").innerHTML = `"${data.formal}"`;
+        document.getElementById("res-casual").innerHTML = `"${data.casual}"`;
+
+        aiAlertBanner.style.display = isAiInferred ? "flex" : "none";
+        resultCard.style.display = "block";
+      }
+
+      // Copy pure word to clipboard
+      function copyPureWord() {
+        const pureText = document.getElementById("res-translated").innerText;
+        const original = document.getElementById("res-original").innerText;
+        const copyContent = `[바른말 패치] "${original}" 대신 품격 있게 👉 "${pureText}"`;
+
+        navigator.clipboard.writeText(copyContent).then(() => {
+          showToast("✨ 순화된 문장이 클립보드에 복사되었습니다!");
+        }).catch(() => {
+          showToast("클립보드 복사 권한이 필요합니다.");
+        });
+      }
+
+      function handleShare(platform) {
+        const pureText = document.getElementById("res-translated").innerText;
+        if (platform === 'kakao') {
+          showToast(`💬 카카오톡 공유: [바른말 패치: ${pureText}]`);
+        } else {
+          showToast(`🕊️ X(트위터) 공유 포맷으로 복사되었습니다: [${pureText}]`);
+        }
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById("toast");
+        toast.innerText = msg;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2500);
+      }
+
+      // Modals
+      function openQuizModal() {
+        document.getElementById("quiz-modal").style.display = "flex";
+        loadQuiz(currentQuizIdx);
+      }
+      function closeQuizModal() { document.getElementById("quiz-modal").style.display = "none"; }
+
+      function openDictionaryModal() { document.getElementById("dict-modal").style.display = "flex"; }
+      function closeDictionaryModal() { document.getElementById("dict-modal").style.display = "none"; }
+
+      function openReportModal() { document.getElementById("report-modal").style.display = "flex"; }
+      function closeReportModal() { document.getElementById("report-modal").style.display = "none"; }
+
+      function closeModalOnBackdrop(e, modalId) {
+        if (e.target.id === modalId) document.getElementById(modalId).style.display = "none";
+      }
+
+      // Quiz Mechanics
+      function loadQuiz(idx) {
+        quizAnswered = false;
+        const q = quizQuestions[idx % quizQuestions.length];
+        document.getElementById("quiz-question").innerText = q.question;
+        const feedback = document.getElementById("quiz-feedback");
+        feedback.className = "quiz-feedback";
+        feedback.style.display = "none";
+        document.getElementById("quiz-next-btn").style.display = "none";
+
+        const optionsEl = document.getElementById("quiz-options");
+        optionsEl.innerHTML = q.options.map((opt, i) => `
+          <button class="quiz-option-btn" onclick="checkQuizAnswer(${i})">
+            <span>${i + 1}. ${opt}</span>
+          </button>
+        `).join('');
+      }
+
+      function checkQuizAnswer(selectedIdx) {
+        if (quizAnswered) return;
+        quizAnswered = true;
+
+        const q = quizQuestions[currentQuizIdx % quizQuestions.length];
+        const buttons = document.querySelectorAll(".quiz-option-btn");
+        const feedback = document.getElementById("quiz-feedback");
+        const nextBtn = document.getElementById("quiz-next-btn");
+
+        buttons.forEach((btn, i) => {
+          btn.disabled = true;
+          if (i === q.answer) btn.classList.add("correct");
+          else if (i === selectedIdx) btn.classList.add("wrong");
+        });
+
+        if (selectedIdx === q.answer) {
+          triggerConfetti();
+          feedback.className = "quiz-feedback show-correct";
+          feedback.innerHTML = `<strong>🎉 정답입니다! 품격 있는 양반의 어휘력!</strong><br>${q.explanation}`;
+        } else {
+          feedback.className = "quiz-feedback show-wrong";
+          feedback.innerHTML = `<strong>앗, 아쉬워요! 정답은 ${q.answer + 1}번입니다.</strong><br>${q.explanation}`;
+        }
+
+        nextBtn.style.display = "block";
+      }
+
+      function nextQuiz() {
+        currentQuizIdx++;
+        loadQuiz(currentQuizIdx);
+      }
+
+      // Confetti Canvas
+      function triggerConfetti() {
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const colors = ['#2563eb', '#3b82f6', '#ef4444', '#f59e0b', '#10b981', '#8b5cf6'];
+
+        for (let i = 0; i < 70; i++) {
+          particles.push({
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            r: Math.random() * 6 + 4,
+            d: Math.random() * 50 + 10,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            tilt: Math.floor(Math.random() * 10) - 10,
+            tiltAngleIncremental: Math.random() * 0.07 + 0.05,
+            tiltAngle: 0,
+            vx: (Math.random() - 0.5) * 16,
+            vy: (Math.random() - 0.7) * 16
+          });
+        }
+
+        let animationFrame;
+        let opacity = 1;
+
+        function draw() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => {
+            ctx.beginPath();
+            ctx.lineWidth = p.r / 2;
+            ctx.strokeStyle = p.color;
+            ctx.moveTo(p.x + p.tilt + p.r, p.y);
+            ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r);
+            ctx.stroke();
+
+            p.tiltAngle += p.tiltAngleIncremental;
+            p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2 + p.vy;
+            p.x += Math.sin(p.d) * 2 + p.vx;
+            p.tilt = Math.sin(p.tiltAngle - (particles.indexOf(p) / 3)) * 15;
+            p.vy += 0.35;
+          });
+
+          opacity -= 0.015;
+          if (opacity > 0) {
+            canvas.style.opacity = opacity;
+            animationFrame = requestAnimationFrame(draw);
+          } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvas.style.opacity = 1;
+            cancelAnimationFrame(animationFrame);
+          }
+        }
+
+        draw();
+      }
+    </script>
+  </body>
+</html>
